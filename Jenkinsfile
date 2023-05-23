@@ -4,13 +4,13 @@ pipeline {
         stage('Checkout') {
             steps {
                 sh 'echo Checkout Stage'
-                //git 'https://github.com/FernandoGutierrezG/app_node_01.git'
+                git 'https://github.com/FernandoGutierrezG/app_node_01.git'
             }
         }
         stage('Build') {
             steps {
                 sh 'echo Build Stage'
-                //sh 'npm install'
+                sh 'yarn build'
                 //sh 'npm run build'
             }
         }
