@@ -34,18 +34,16 @@ pipeline {
             steps {
                 script {
                     sh 'echo Docker Stage'
-                    sh 'def dockerImage = docker.build('${DOCKER_IMAGE_NAME}')'
-                    
-                    // script {
-                    //         def dockerImage = docker.build('${DOCKER_IMAGE_NAME}')
-                    //         }
+                    script {
+                            def dockerImage = docker.build('${env.DOCKER_IMAGE_NAME}')
+                            }
                         }
             }
         }
         stage('Deploy') {
             steps {
                 sh 'echo Deploy Stage'
-                sh 'docker push ${DOCKER_IMAGE_NAME}'
+                sh 'docker push ${env.DOCKER_IMAGE_NAME}'
             }
         }
     }
