@@ -13,6 +13,9 @@ pipeline {
         stage('Checkout') {
             steps {
                 sh 'echo Checkout Stage'
+                sh 'ls'
+                checkout scm
+                sh 'ls'
                 //git 'https://github.com/FernandoGutierrezG/app_node_01.git'
             }
         }
