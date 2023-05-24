@@ -6,10 +6,7 @@ pipeline {
         stage('Clean') {
             steps {
                 deleteDir()
-                script  {
-                    echo '${BUILD_NUMBER}variable'
-                    pwd
-                }
+                sh 'echo Hello ${BUILD_NUMBER} ${DOCKER_USERNAME}'
             }
         }
         stage('Checkout') {
