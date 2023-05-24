@@ -12,9 +12,14 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'pwd'
-                sh 'cat /etc/*-release'
-                sh 'npm install'
-                sh 'npm run build'
+                sh 'ls'
+                sh 'ls app/'
+                sh 'cd app/'
+                sh 'npm install express --save'
+                sh 'cd ..'
+                sh 'pwd'
+                sh 'ls'
+                sh 'ls app/'
             }
         }
         stage('Archive') {
