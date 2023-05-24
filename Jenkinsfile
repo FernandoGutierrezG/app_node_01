@@ -24,12 +24,8 @@ pipeline {
                 sh 'pwd'
                 sh 'ls'
                 sh 'ls app/'
-                sh 'cd app/'
+                sh 'cd app/ && npm install express --save'
                 sh 'ls'
-                sh 'npm install express --save'
-                sh 'ls'
-                sh 'cd ..'
-                sh 'pwd'
                 sh 'ls'
                 sh 'ls app/'
             }
