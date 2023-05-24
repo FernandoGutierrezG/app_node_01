@@ -1,5 +1,6 @@
 pipeline {
-    agent { label 'agent_nodejs' }
+    //agent { label 'agent_nodejs' }
+    agent { label 'agent-alpine' }
     stages {
         // stage('Checkout') {
         //     steps {
