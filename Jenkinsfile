@@ -34,12 +34,12 @@ pipeline {
             steps {
                 script {
                     sh 'echo Docker Stage'
-                    sh 'pwd && ls'
+                    sh 'def dockerImage = docker.build('${DOCKER_IMAGE_NAME}')'
                     
-                    script {
-                            def dockerImage = docker.build('${DOCKER_IMAGE_NAME}')
-                            }
-                        }
+                    // script {
+                    //         def dockerImage = docker.build('${DOCKER_IMAGE_NAME}')
+                    //         }
+                    //     }
             }
         }
         stage('Deploy') {
