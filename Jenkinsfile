@@ -6,7 +6,7 @@ pipeline {
         //         sh 'echo Checkout Stage'
         //         git 'https://github.com/FernandoGutierrezG/app_node_01.git'
         //     }
-        }
+        // }
         stage('Build') {
             steps {
                 sh 'npm install'
