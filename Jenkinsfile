@@ -6,7 +6,6 @@ pipeline {
         stage('Clean') {
             steps {
                 deleteDir()
-                sh 'echo Hello ${BUILD_NUMBER} ${DOCKER_USERNAME}'
             }
         }
         stage('Checkout') {
@@ -34,7 +33,7 @@ pipeline {
                     sh 'pwd && ls'
                     
                     script {
-                            def dockerImage = docker.build("app_node:${env.BUILD_ID}")
+                            def dockerImage = docker.build("${DOCKER_USERNAME}/app_node:${env.BUILD_ID}")
                             }
                         }
             }
@@ -42,7 +41,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh 'echo Deploy Stage'
-                //sh 'docker push your-image-name'
+                sh 'docker push ${DOCKER_USERNAME}/app_node:${env.BUILD_ID}'
             }
         }
     }
