@@ -9,9 +9,9 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'echo Build Stage'
-                sh 'yarn build'
-                //sh 'npm run build'
+                sh 'npm install'
+                sh 'npm run build'
+            }
             }
         }
         stage('Archive') {
