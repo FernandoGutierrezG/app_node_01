@@ -35,7 +35,7 @@ pipeline {
                 script {
                     sh 'echo Docker Stage'
                     script {
-                            def dockerImage = docker.build(${DOCKER_IMAGE_NAME})
+                            def dockerImage = docker.build("${DOCKER_IMAGE_NAME}")
                             dockerImage.push
                             }
                         }
