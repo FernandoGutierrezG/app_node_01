@@ -41,11 +41,11 @@ pipeline {
                         }
             }
         }
-        // stage('Deploy') {
-        //     steps {
-        //         sh 'echo Deploy Stage'
-        //         sh 'docker push ${env.DOCKER_IMAGE_NAME}'
-        //     }
+        stage('Deploy') {
+            steps {
+                sh 'echo Deploy Stage'
+                //sh 'docker push ${env.DOCKER_IMAGE_NAME}'
+            }
         }
     }
 }
