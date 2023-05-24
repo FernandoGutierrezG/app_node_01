@@ -5,35 +5,25 @@ pipeline {
     stages {
         stage('Clean') {
             steps {
-                sh 'ls'
                 deleteDir()
-                sh 'ls'
             }
         }
         stage('Checkout') {
             steps {
                 sh 'echo Checkout Stage'
-                sh 'ls'
                 checkout scm
-                sh 'ls'
                 //git 'https://github.com/FernandoGutierrezG/app_node_01.git'
             }
         }
         stage('Build') {
             steps {
-                sh 'pwd'
-                sh 'ls'
-                sh 'ls app/'
                 sh 'cd app/ && npm install express --save'
-                sh 'ls'
-                sh 'ls'
-                sh 'ls app/'
             }
         }
         stage('Archive') {
             steps {
                 sh 'echo Archive Stage'
-                //archiveArtifacts artifacts: 'build/**/*', fingerprint: true
+                archiveArtifacts artifacts: 'build/**/*', fingerprint: true
             }
         }
         stage('Docker') {
