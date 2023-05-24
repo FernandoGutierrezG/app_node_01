@@ -30,6 +30,7 @@ pipeline {
             steps {
                 script {
                     sh 'echo Docker Stage'
+                    sh 'pwd && ls'
                     script {
                             def dockerImage = docker.build("app_node:${env.BUILD_ID}")
                             }
