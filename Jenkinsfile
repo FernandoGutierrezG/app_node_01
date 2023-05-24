@@ -7,7 +7,7 @@ pipeline {
             steps {
                 deleteDir()
                 script  {
-                    NAME = '${BUILD_NUMBER}variable'
+                    NAME='${BUILD_NUMBER}variable'
                     echo $NAME
                 }
             }
