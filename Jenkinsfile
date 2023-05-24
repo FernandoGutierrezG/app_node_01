@@ -10,7 +10,6 @@ pipeline {
                     NAME = '${BUILD_NUMBER}variable'
                     echo $NAME
                 }
-                ${BUILD_NUMBER}
             }
         }
         stage('Checkout') {
