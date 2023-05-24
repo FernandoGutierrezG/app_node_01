@@ -9,6 +9,7 @@ pipeline {
         stage('Clean') {
             steps {
                 deleteDir()
+                sh 'echo ${DOCKER_IMAGE_NAME}'
             }
         }
         stage('Checkout') {
