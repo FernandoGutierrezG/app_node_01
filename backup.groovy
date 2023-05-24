@@ -31,3 +31,41 @@ pipeline {
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                sh 'npm install'
+                sh 'npm run build'
+            }
+        }
+        stage('Archive') {
+            steps {
+                archiveArtifacts artifacts: 'build/**/*', fingerprint: true
+            }
+        }
+        stage('Docker') {
+            steps {
+                script {
+                    def dockerImage = docker.build("my-image:${env.BUILD_ID}")
+                    docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
+                        dockerImage.push()
+                    }
+                }
+            }
+        }
+    }
+}

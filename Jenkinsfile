@@ -13,8 +13,8 @@ pipeline {
             steps {
                 sh 'pwd'
                 sh 'cat /etc/*-release'
-                //sh 'npm install'
-                //sh 'npm run build'
+                sh 'npm install'
+                sh 'npm run build'
             }
         }
         stage('Archive') {
