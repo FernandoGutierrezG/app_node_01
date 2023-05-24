@@ -35,16 +35,17 @@ pipeline {
                 script {
                     sh 'echo Docker Stage'
                     script {
-                            def dockerImage = docker.build(${env.DOCKER_IMAGE_NAME})
+                            def dockerImage = docker.build("${env.DOCKER_USERNAME}/app_node:${env.BUILD_ID}")
+                            dockerImage.push
                             }
                         }
             }
         }
-        stage('Deploy') {
-            steps {
-                sh 'echo Deploy Stage'
-                sh 'docker push ${env.DOCKER_IMAGE_NAME}'
-            }
+        // stage('Deploy') {
+        //     steps {
+        //         sh 'echo Deploy Stage'
+        //         sh 'docker push ${env.DOCKER_IMAGE_NAME}'
+        //     }
         }
     }
 }
