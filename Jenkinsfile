@@ -30,8 +30,10 @@ pipeline {
             steps {
                 script {
                     sh 'echo Docker Stage'
-                    //docker.build('your-image-name')
-                }
+                    script {
+                            def dockerImage = docker.build("app_node:${env.BUILD_ID}")
+                            }
+                        }
             }
         }
         stage('Deploy') {
