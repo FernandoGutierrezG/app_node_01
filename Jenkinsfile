@@ -3,12 +3,12 @@ pipeline {
     //agent { label 'agent-alpine' }
     agent any
     stages {
-        // stage('Checkout') {
-        //     steps {
-        //         sh 'echo Checkout Stage'
-        //         git 'https://github.com/FernandoGutierrezG/app_node_01.git'
-        //     }
-        // }
+        stage('Checkout') {
+            steps {
+                sh 'echo Checkout Stage'
+                git 'https://github.com/FernandoGutierrezG/app_node_01.git'
+            }
+        }
         stage('Build') {
             steps {
                 sh 'pwd'
