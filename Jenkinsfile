@@ -39,7 +39,7 @@ pipeline {
                     // script {
                     //         def dockerImage = docker.build('${DOCKER_IMAGE_NAME}')
                     //         }
-                    //     }
+                        }
             }
         }
         stage('Deploy') {
