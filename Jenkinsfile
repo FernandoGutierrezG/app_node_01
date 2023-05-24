@@ -23,7 +23,7 @@ pipeline {
         stage('Archive') {
             steps {
                 sh 'echo Archive Stage'
-                archiveArtifacts artifacts: 'build/**/*', fingerprint: true
+                archiveArtifacts artifacts: 'app/', fingerprint: true
             }
         }
         stage('Docker') {
