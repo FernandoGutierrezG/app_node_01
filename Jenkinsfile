@@ -1,4 +1,7 @@
 pipeline {
+    environment {
+        DOCKER_IMAGE_NAME = "${DOCKER_USERNAME}/app_node:${env.BUILD_ID}"
+    }
     //agent { label 'agent_nodejs' }
     //agent { label 'agent-alpine' }
     agent any
@@ -33,7 +36,7 @@ pipeline {
                     sh 'pwd && ls'
                     
                     script {
-                            def dockerImage = docker.build("${DOCKER_USERNAME}/app_node:${env.BUILD_ID}")
+                            def dockerImage = docker.build(${DOCKER_IMAGE_NAME})
                             }
                         }
             }
@@ -41,7 +44,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh 'echo Deploy Stage'
-                sh 'docker push "${DOCKER_USERNAME}/app_node:${env.BUILD_ID}"'
+                sh 'docker push ${DOCKER_IMAGE_NAME}'
             }
         }
     }
