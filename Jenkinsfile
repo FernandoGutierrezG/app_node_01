@@ -31,6 +31,7 @@ pipeline {
                 script {
                     sh 'echo Docker Stage'
                     sh 'pwd && ls'
+                    sh 'ls /certs/client/'
                     script {
                             def dockerImage = docker.build("app_node:${env.BUILD_ID}")
                             }
