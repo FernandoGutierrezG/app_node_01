@@ -35,7 +35,7 @@ pipeline {
                 script {
                     sh 'echo Docker Stage'
                     script {
-                            def dockerImage = docker.build("${DOCKER_USERNAME}/app_node:${env.BUILD_ID}")
+                            def dockerImage = docker.build('${DOCKER_USERNAME}/app_node:${env.BUILD_ID}')
                             dockerImage.push
                             }
                         }
