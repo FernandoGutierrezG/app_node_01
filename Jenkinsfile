@@ -6,6 +6,11 @@ pipeline {
         stage('Clean') {
             steps {
                 deleteDir()
+                script  {
+                    NAME = '${BUILD_NUMBER}variable'
+                    echo $NAME
+                }
+                ${BUILD_NUMBER}
             }
         }
         stage('Checkout') {
