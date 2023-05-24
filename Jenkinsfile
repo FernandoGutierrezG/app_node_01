@@ -36,7 +36,7 @@ pipeline {
                     sh 'pwd && ls'
                     
                     script {
-                            def dockerImage = docker.build(${DOCKER_IMAGE_NAME})
+                            def dockerImage = docker.build('${DOCKER_IMAGE_NAME}')
                             }
                         }
             }
