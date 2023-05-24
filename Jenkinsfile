@@ -41,7 +41,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh 'echo Deploy Stage'
-                sh 'docker push ${DOCKER_USERNAME}/app_node:${env.BUILD_ID}'
+                sh 'docker push "${DOCKER_USERNAME}/app_node:${env.BUILD_ID}"'
             }
         }
     }
