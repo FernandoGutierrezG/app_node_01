@@ -31,7 +31,7 @@ pipeline {
                 archiveArtifacts artifacts: 'app/', fingerprint: true
             }
         }
-        stage('Docker') {
+        stage('Docker build') {
             steps {
                 script {
                     sh 'echo Docker Stage'
@@ -39,7 +39,7 @@ pipeline {
                 }
             }
         }
-        stage('Deploy') {
+        stage('Docker Push') {
             steps {
                 sh 'echo Deploy Stage'
                 sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
