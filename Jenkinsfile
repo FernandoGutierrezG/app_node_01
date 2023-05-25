@@ -43,7 +43,7 @@ pipeline {
             steps {
                 sh 'echo Deploy Stage'
                 sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-                //sh 'docker push ${env.DOCKER_IMAGE_NAME}'
+                sh 'docker push ${DOCKER_IMAGE_NAME}'
             }
         }
     }
