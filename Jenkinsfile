@@ -36,6 +36,7 @@ pipeline {
                 script {
                     sh 'echo Docker Stage'
                     sh 'docker build -t ${DOCKER_IMAGE_NAME} .'
+                }
             }
         }
         stage('Deploy') {
