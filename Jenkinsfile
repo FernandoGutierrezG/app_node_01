@@ -1,5 +1,6 @@
 pipeline {
     environment {
+        DOCKERHUB_CREDENTIALS = credentials('docker')
         DOCKER_IMAGE_NAME = "${DOCKER_USERNAME}/app_node:${env.BUILD_ID}"
     }
     //agent { label 'agent_nodejs' }
@@ -34,16 +35,13 @@ pipeline {
             steps {
                 script {
                     sh 'echo Docker Stage'
-                    script {
-                            def dockerImage = docker.build("${DOCKER_IMAGE_NAME}")
-                            dockerImage.push
-                            }
-                        }
+                    sh 'docker build -t ${DOCKER_IMAGE_NAME} .'
             }
         }
         stage('Deploy') {
             steps {
                 sh 'echo Deploy Stage'
+                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
                 //sh 'docker push ${env.DOCKER_IMAGE_NAME}'
             }
         }
